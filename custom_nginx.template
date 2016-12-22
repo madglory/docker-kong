@@ -13,11 +13,11 @@ events {}
   error_log logs/error.log ${{LOG_LEVEL}};
   access_log logs/access.log;
 
-  > if anonymous_reports then
+> if anonymous_reports then
     ${{SYSLOG_REPORTS}}
-  > end
+> end
 
-  > if nginx_optimizations then
+> if nginx_optimizations then
   >-- send_timeout 60s;          # default value
   >-- keepalive_timeout 75s;     # default value
   >-- client_body_timeout 60s;   # default value
@@ -27,7 +27,7 @@ events {}
   >-- proxy_buffers 4 256k;      # disabled until benchmarked
   >-- proxy_busy_buffers_size 256k; # disabled until benchmarked
   >-- reset_timedout_connection on; # disabled until benchmarked
-  > end
+> end
 
   client_max_body_size 0;
   proxy_ssl_server_name on;
